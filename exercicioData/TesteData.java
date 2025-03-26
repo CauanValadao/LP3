@@ -7,8 +7,10 @@ public class TesteData {
         Scanner sc = new Scanner(System.in);
         System.out.printf("Digite quantos elementos tem o vetor: ");
         int n = sc.nextInt();
-        Data[] vetor = Data.alocaListaDatas(n);
-        Data.entradaDatas(vetor);
+        Data[] vetor = new Data[n];
+        for(int i = 0; i < n; i++)
+            vetor[i] = new Data(sc);
+        
         Data.imprimeDatas(vetor);
         sc.close();
     }
