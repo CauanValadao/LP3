@@ -13,6 +13,8 @@ public class TesteData {
         vetor[n] = new Data(12,5,2003,30);*/
         vetor[0] = new Data(12,12,2005);
         vetor[1] = new Data(vetor[0], 30);
+        if(Data.maiorOuIgual(vetor[1],vetor[0])) System.out.printf("true\n");
+        else System.out.printf("false\n");
         Data.imprimeDatas(vetor);
         sc.close();
     }
