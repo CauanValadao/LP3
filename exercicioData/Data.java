@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 public class Data {
-    private int dia, mes, ano;
+    public int dia, mes, ano;
 
     public Data(Scanner sc){
         entradaDatas(sc);
@@ -20,6 +20,10 @@ public class Data {
     }
     public Data(int dia, int mes, int ano, int dias){
         somaData(dia, mes, ano, dias);
+    }
+
+    public Data(Data data, int dias){
+        somaData(data.dia, data.mes, data.ano, dias);
     }
 
     private void somaData(int dia, int mes, int ano, int dias){

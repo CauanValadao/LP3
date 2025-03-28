@@ -1,6 +1,13 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "TesteData",
+            "request": "launch",
+            "mainClass": "exercicioData.TesteData",
+            "projectName": "LP3_afeee203"
+        },
+        {
             "name": "C/C++: gcc.exe build and debug active file",
             "type": "cppdbg",
             "request": "launch",
