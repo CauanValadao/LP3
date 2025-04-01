@@ -145,13 +145,15 @@ public class Data {
     }
    
     public boolean diferenteDe(Data outraData){
-        if(this.dia != outraData.dia || this.mes != outraData.mes || this.ano != outraData.ano) return true;
-        return false;
+        //if(this.dia != outraData.dia || this.mes != outraData.mes || this.ano != outraData.ano) return true;
+        //return false;
+        return !igualA(outraData);
     }
    
     public static boolean diferenteDe(Data data, Data outraData){
-        if(data.dia != outraData.dia || data.mes != outraData.mes || data.ano != outraData.ano) return true;
-        return false;
+        //if(data.dia != outraData.dia || data.mes != outraData.mes || data.ano != outraData.ano) return true;
+        //return false;
+        return !igualA(data, outraData);
     }
     
     public boolean anteriorA(Data outraData){
