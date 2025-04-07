@@ -65,12 +65,13 @@ public class Data {
     }
 
     public static boolean dataValida(int dia, int mes, int ano){
+        if(ano < 0) return false;
         if(mes < 1 || mes > 12) return false;
         if(dia < 1 || dia > 31) return false;
         if((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) return false;
         if(mes == 2){
             boolean bissexto = false;
-            if(((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)))
+            if((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0))
                 bissexto = true;
 
             if(dia > 29 || (dia == 29 && !bissexto)) return false;
