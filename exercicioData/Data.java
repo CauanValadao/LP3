@@ -27,6 +27,10 @@ public class Data {
             this.ano = ano;
         }
     }
+ 
+    public Data(Data data){
+        this(data.dia, data.mes, data.ano);
+    }
 
     public Data(int dia, int mes, int ano, int dias){
         somaData(dia, mes, ano, dias);
@@ -133,6 +137,14 @@ public class Data {
             return true;
         }
         return false;
+    }
+
+    public void setData(Data data){
+        if(dataValida(data.dia, data.mes, data.ano)){
+            this.dia = data.dia;
+            this.mes = data.mes;
+            this.ano = data.ano;
+        }
     }
   
     public boolean igualA(Data outraData){

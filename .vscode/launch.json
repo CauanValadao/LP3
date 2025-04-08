@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "testeLista",
+            "request": "launch",
+            "mainClass": "exercicioListaCompromisso.testeLista",
+            "projectName": "LP3_afeee203"
+        },
+        {
+            "type": "java",
             "name": "Matricula",
             "request": "launch",
             "mainClass": "exercicioAluno.Matricula",
