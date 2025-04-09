@@ -188,57 +188,63 @@ public class Data {
     }
 
     public boolean posteriorA(Data outraData){
-        if(this.ano < outraData.ano) return false;
+      /*if(this.ano < outraData.ano) return false;
+        if(this.ano > outraData.ano) return true;
+        if(this.mes < outraData.mes) return false;
+        if(this.mes > outraData.mes) return true;
+        if(this.dia > outraData.dia) return true;
+        return false;*/
+        return !this.anteriorA(outraData) && !this.igualA(outraData);
+    }
+    
+    public static boolean posteriorA(Data data, Data outraData){
+      /*if(data.ano < outraData.ano) return false;
+        if(data.ano > outraData.ano) return true;
+        if(data.mes < outraData.mes) return false;
+        if(data.mes > outraData.mes) return true;
+        if(data.dia > outraData.dia) return true;
+        return false;*/
+        return !data.anteriorA(outraData) && !data.igualA(outraData);
+    }
+    
+    public boolean maiorOuIgual(Data outraData){
+      /*if(this.ano < outraData.ano) return false;
         if(this.ano > outraData.ano) return true;
         if(this.mes < outraData.mes) return false;
         if(this.mes > outraData.mes) return true;
         if(this.dia <= outraData.dia) return false;
-        return true;
+        return true;*/
+        return this.posteriorA(outraData) || this.igualA(outraData);
     }
     
-    public static boolean posteriorA(Data data, Data outraData){
-        if(data.ano < outraData.ano) return false;
+    public static boolean maiorOuIgual(Data data, Data outraData){
+     /* if(data.ano < outraData.ano) return false;
         if(data.ano > outraData.ano) return true;
         if(data.mes < outraData.mes) return false;
         if(data.mes > outraData.mes) return true;
         if(data.dia <= outraData.dia) return false;
-        return true;
-    }
-    
-    public boolean maiorOuIgual(Data outraData){
-        if(this.ano < outraData.ano) return false;
-        if(this.ano > outraData.ano) return true;
-        if(this.mes < outraData.mes) return false;
-        if(this.mes > outraData.mes) return true;
-        if(this.dia < outraData.dia) return false;
-        return true;
-    }
-    
-    public static boolean maiorOuIgual(Data data, Data outraData){
-        if(data.ano < outraData.ano) return false;
-        if(data.ano > outraData.ano) return true;
-        if(data.mes < outraData.mes) return false;
-        if(data.mes > outraData.mes) return true;
-        if(data.dia < outraData.dia) return false;
-        return true;
+        return true;*/
+        return posteriorA(data, outraData) || igualA(data, outraData);
     }
     
     public boolean menorOuIgual(Data outraData){
-        if(this.ano < outraData.ano) return true;
+      /*if(this.ano < outraData.ano) return true;
         if(this.ano > outraData.ano) return false;
         if(this.mes < outraData.mes) return true;
         if(this.mes > outraData.mes) return false;
         if(this.dia <= outraData.dia) return true;
-        return false;
+        return false;*/
+        return this.anteriorA(outraData) || this.igualA(outraData);
     }
     
     public static boolean menorOuIgual(Data data, Data outraData){
-        if(data.ano < outraData.ano) return true;
+      /*if(data.ano < outraData.ano) return true;
         if(data.ano > outraData.ano) return false;
         if(data.mes < outraData.mes) return true;
         if(data.mes > outraData.mes) return false;
         if(data.dia <= outraData.dia) return true;
-        return false;
+        return false;*/
+        return anteriorA(data, outraData) || igualA(data, outraData);
     }
 }
 

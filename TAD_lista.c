@@ -4,6 +4,11 @@
 
 #define CAPACIDADE 4
 
+typedef struct {
+    int elementos[CAPACIDADE];
+    int tamanho;
+} Lista;
+
 /* TAD lista usando vetor.
    elementos = vetor de inteiros [0..CAPACIDADE-1];
    tamanho= armazena a quantidade de elementos existentes na lista.
@@ -16,37 +21,96 @@
    void imprimiLista(Lista *lista);
    
 */
-typedef struct {
-    int elementos[CAPACIDADE];
-    int tamanho;
-} Lista;
-
 /* Função para inicializar a lista como uma lista vazia;
    Entrada: uma estrutura do tipo Lista;
    Saída: uma Lista vazia;
 */   
-void inicializaLista(Lista *lista) {
-    lista->tamanho = 0;
-}
-
+void inicializaLista(Lista *lista);
 /* Função para verificar se a lista está cheia.
    Entrada: uma Lista;
    Saída: verdadeiro se a lista estiver cheia e falso caso contrário.
 */
-int estaCheia(Lista *lista) {
-    return lista->tamanho == CAPACIDADE;
-}
-
+int estaCheia(Lista *lista);
 /* Função para adicionar um elemento à lista.
    Entrada: uma Lista e um elemento inteiro;
    Saída: 1 se o elemento foi inserido na Lista e 0 caso contrário (lista sem espaço).
 */
-int adicionaElementoAux(Lista *lista){
-    int elemento;
-    printf("Digite qual elemento deseja adicionar: ");
-    scanf("%d", &elemento);
-    return adicionaElemento(lista, elemento);
+int adicionaElemento(Lista *lista, int elemento);
+/* Função para remover um elemento da lista (por índice)
+   Entrada: uma Lista e o índice do elemento que se deseja remover.
+   Saída: 1 se o elemento foi removido com sucesso ou 0 caso contrário.
+*/
+int removeElemento(Lista *lista, int indice);
+/* Função para imprimir os elementos da lista
+   Entrada: uma Lista.
+   Saída: os elementos da Lista exibidos na tela.
+*/
+void imprimiLista(Lista *lista);
+
+
+int adicionaElementoAux(Lista *lista);
+int removeElementoAux(Lista *lista);
+int pesquisa(Lista *lista, int elemento);
+int pesquisaAux(Lista *lista);
+void merge(Lista *lista, int inicio, int meio, int fim);
+void mergeSort(Lista *lista, int inicio, int fim);
+
+
+int main() {
+    Lista minhaLista;
+    inicializaLista(&minhaLista);
+
+    int x = 1;
+    int indice;
+
+    while(x != 6){
+        printf("1 - Inserir item na lista\n2 - Remover item da lista\n3 - Exibir lista\n4 - Pesquisar item na lista\n5 - Ordenar crescentemente a lista\n6 - Sair\n");
+        scanf("%d", &x);
+
+        switch (x)
+        {
+        case 1:
+            if(!adicionaElementoAux(&minhaLista)) printf("A lista esta cheia\n");
+            break;
+        case 2:
+            if(!removeElementoAux(&minhaLista)) printf("O elemento nao se encontra na lista\n");
+            break;
+        case 3:
+            imprimiLista(&minhaLista);
+            break;
+        case 4:
+            indice = pesquisaAux(&minhaLista);
+            if(indice == -1) printf("O elemento nao se encontra na lista\n");
+            else printf("O elemento se encontra no indice %d\n", indice);
+            break;
+        case 5:
+            mergeSort(&minhaLista, 0, minhaLista.tamanho-1);
+        default:
+            break;
+        }
+    }
+
+    return 0;
 }
+
+
+
+
+
+void inicializaLista(Lista *lista) {
+    lista->tamanho = 0;
+}
+
+int pesquisa(Lista *lista, int elemento){
+    for(int i = 0; i < lista->tamanho; i++)
+        if(lista->elementos[i] == elemento) return i;
+    return -1; 
+}
+
+int estaCheia(Lista *lista) {
+    return lista->tamanho == CAPACIDADE;
+}
+
 int adicionaElemento(Lista *lista, int elemento) {
     if (estaCheia(lista)) {
         return 0; // Falha ao adicionar elemento
@@ -56,16 +120,13 @@ int adicionaElemento(Lista *lista, int elemento) {
     return 1; // Sucesso
 }
 
-/* Função para remover um elemento da lista (por índice)
-   Entrada: uma Lista e o índice do elemento que se deseja remover.
-   Saída: 1 se o elemento foi removido com sucesso ou 0 caso contrário.
-*/
-int removeElementoAux(Lista *lista){
+int adicionaElementoAux(Lista *lista){
     int elemento;
-    printf("Digite qual elemento deseja remover: ");
+    printf("Digite qual elemento deseja adicionar: ");
     scanf("%d", &elemento);
-    return removeElemento(lista, Pesquisa(lista, elemento));
+    return adicionaElemento(lista, elemento);
 }
+
 int removeElemento(Lista *lista, int indice) {
     if (indice < 0 || indice >= lista->tamanho) {
         return 0; // Índice inválido
@@ -77,10 +138,13 @@ int removeElemento(Lista *lista, int indice) {
     return 1; // Sucesso
 }
 
-/* Função para imprimir os elementos da lista
-   Entrada: uma Lista.
-   Saída: os elementos da Lista exibidos na tela.
-*/
+int removeElementoAux(Lista *lista){
+    int elemento;
+    printf("Digite qual elemento deseja remover: ");
+    scanf("%d", &elemento);
+    return removeElemento(lista, pesquisa(lista, elemento));
+}
+
 void imprimiLista(Lista *lista) {
     for (int i = 0; i < lista->tamanho; i++) {
         printf("%d ", lista->elementos[i]);
@@ -88,7 +152,7 @@ void imprimiLista(Lista *lista) {
     printf("\n");
 }
 
-void pesquisaAux(Lista *lista){
+int pesquisaAux(Lista *lista){
     int elemento;
     printf("Digite qual elemento deseja pesquisar: ");
     scanf("%d", &elemento);
@@ -97,14 +161,6 @@ void pesquisaAux(Lista *lista){
 
     return indice;
 }
-
-int Pesquisa(Lista *lista, int elemento){
-    for(int i = 0; i < lista->tamanho; i++)
-        if(lista->elementos[i] == elemento) return i;
-    return -1; 
-}
-
-
 
 void merge(Lista *lista, int inicio, int meio, int fim) {
     int i, j, k;
@@ -159,53 +215,4 @@ void mergeSort(Lista *lista, int inicio, int fim) {
 
         merge(lista, inicio, meio, fim);
     }
-}
-
-int main() {
-    Lista minhaLista;
-    inicializaLista(&minhaLista);
-
-    int x = 1;
-
-    while(x != 6){
-        printf("1 - Inserir item na lista2 - Remover item da lista\n3 - Exibir lista\n4 - Pesquisar item na lista\n5 - Ordenar crescentemente a lista\n6 - Sair");
-        scanf("%d", &x);
-
-        switch (x)
-        {
-        case 1:
-            if(!adicionaElementoAux(&minhaLista)) printf("A lista esta cheia\n");
-            break;
-        case 2:
-            if(!removeElementoAux) printf("O elemento nao se encontra na lista\n");
-            break;
-        case 3:
-            imprimiLista(&minhaLista);
-            break;
-        case 4:
-            
-            break;
-        case 5:
-            mergeSort(&minhaLista, 0, minhaLista.tamanho-1);
-        default:
-            break;
-        }
-    }
-
-
-/*
-    adicionaElemento(&minhaLista, 5);
-    adicionaElemento(&minhaLista, 2);
-    if(!adicionaElemento(&minhaLista, 6)) printf("Nao ha espaco para novo item");
-
-    printf("Lista inicial: ");
-    imprimiLista(&minhaLista);
-
-    //removeElemento(&minhaLista, 1); // Remove o elemento de índice 1 (20)
-    mergeSort(&minhaLista, 0, 2);
-    printf("Lista apos remocao: ");
-    imprimiLista(&minhaLista);
-    */
-
-    return 0;
 }

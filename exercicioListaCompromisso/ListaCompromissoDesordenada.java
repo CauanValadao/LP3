@@ -2,8 +2,8 @@ package exercicioListaCompromisso;
 import exercicioData.*;
 
 public class ListaCompromissoDesordenada {
-    Data[] lista;
-    int tam = 0;
+    private Data[] lista;
+    private int tam = 0;
 
     public ListaCompromissoDesordenada(int capacidade){
         lista = new Data[capacidade];
@@ -22,7 +22,7 @@ public class ListaCompromissoDesordenada {
     }
 
     public boolean adicionaCompromisso(Data novaData){
-        if(verificaCompromissoInt(novaData) != -1) return false;
+        if(verificaCompromissoInt(novaData) != -1 || this.tam > lista.length) return false;
         lista[tam++] = new Data(novaData);
         return true;
     }
