@@ -18,7 +18,7 @@ typedef struct {
    int estaCheia(Lista *lista);
    int adicionaElemento(Lista *lista, int elemento);
    int removeElemento(Lista *lista, int indice);
-   void imprimiLista(Lista *lista);
+   void imprimeLista(Lista *lista);
    
 */
 /* Função para inicializar a lista como uma lista vazia;
@@ -45,7 +45,7 @@ int removeElemento(Lista *lista, int indice);
    Entrada: uma Lista.
    Saída: os elementos da Lista exibidos na tela.
 */
-void imprimiLista(Lista *lista);
+void imprimeLista(Lista *lista);
 
 
 int adicionaElementoAux(Lista *lista);
@@ -76,7 +76,7 @@ int main() {
             if(!removeElementoAux(&minhaLista)) printf("O elemento nao se encontra na lista\n");
             break;
         case 3:
-            imprimiLista(&minhaLista);
+            imprimeLista(&minhaLista);
             break;
         case 4:
             indice = pesquisaAux(&minhaLista);
@@ -85,6 +85,7 @@ int main() {
             break;
         case 5:
             mergeSort(&minhaLista, 0, minhaLista.tamanho-1);
+            break;
         default:
             break;
         }
@@ -145,7 +146,7 @@ int removeElementoAux(Lista *lista){
     return removeElemento(lista, pesquisa(lista, elemento));
 }
 
-void imprimiLista(Lista *lista) {
+void imprimeLista(Lista *lista) {
     for (int i = 0; i < lista->tamanho; i++) {
         printf("%d ", lista->elementos[i]);
     }
@@ -162,57 +163,38 @@ int pesquisaAux(Lista *lista){
     return indice;
 }
 
-void merge(Lista *lista, int inicio, int meio, int fim) {
-    int i, j, k;
-    int n1 = meio - inicio + 1;
-    int n2 = fim - meio;
+void merge(Lista* vet, int inicio, int meio, int fim){
+    int p1 = inicio;
+    int p2 = meio + 1;
+    int tamanho = fim - inicio + 1;
+    int i = 0;
 
-    int *L = malloc(n1 * sizeof(int));
-    int *R = malloc(n2 * sizeof(int));
+    int* temp = (int*)malloc(sizeof(int)*tamanho);
 
-    for (i = 0; i < n1; i++)
-        L[i] = lista->elementos[inicio + i];
-    for (j = 0; j < n2; j++)
-        R[j] = lista->elementos[meio + 1 + j];
-
-    i = 0;
-    j = 0;
-    k = inicio;
-
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            lista->elementos[k] = L[i];
-            i++;
-        } else {
-            lista->elementos[k] = R[j];
-            j++;
-        }
-        k++;
+    while(p1 <= meio && p2 <= fim){
+        if(vet->elementos[p1] < vet->elementos[p2])
+            temp[i++] = vet->elementos[p1++];
+        else
+            temp[i++] = vet->elementos[p2++];
     }
+    while(p1 <= meio)
+        temp[i++] = vet->elementos[p1++];
+    while(p2 <= fim)
+        temp[i++] = vet->elementos[p2++];
+    
+    for(i = 0; i < tamanho; i++)
+        vet->elementos[inicio + i] = temp[i];
 
-    while (i < n1) {
-        lista->elementos[k] = L[i];
-        i++;
-        k++;
-    }
-
-    while (j < n2) {
-        lista->elementos[k] = R[j];
-        j++;
-        k++;
-    }
-
-    free(L);
-    free(R);
+    free(temp);
 }
 
-void mergeSort(Lista *lista, int inicio, int fim) {
-    if (inicio < fim) {
-        int meio = inicio + (fim - inicio) / 2;
 
-        mergeSort(lista, inicio, meio);
-        mergeSort(lista, meio + 1, fim);
+void mergeSort(Lista* vet,int inicio,int fim){
+    if(inicio < fim){
+        int meio = inicio + (fim - inicio)/ 2; 
 
-        merge(lista, inicio, meio, fim);
+        mergeSort(vet, inicio, meio);
+        mergeSort(vet, meio + 1, fim);
+        merge(vet, inicio, meio, fim);
     }
 }
