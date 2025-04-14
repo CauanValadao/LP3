@@ -7,8 +7,8 @@ public class ListaCompromissoOrdenada {
 
     public ListaCompromissoOrdenada(int capacidade){
         lista = new Data[capacidade];
-        for(int i = 0; i < capacidade; i++) 
-            lista[i] = new Data();
+        //for(int i = 0; i < capacidade; i++) 
+         //   lista[i] = new Data();
     }
 
     public boolean verificaCompromisso(Data data){
@@ -17,14 +17,23 @@ public class ListaCompromissoOrdenada {
     }
 
     public boolean adicionaCompromisso(Data novaData){
+        if(this.tam == 0){
+            lista[tam++] = novaData;
+            return true;
+        }
 
         int indice = buscaIndice(novaData);
-        if(novaData.igualA(lista[indice]) || this.tam >= lista.length) return false;
+        if(this.tam < lista.length && indice == this.tam){
+            lista[tam++] = novaData;
+            return true;
+        }
+        
+        if(this.tam >= lista.length || novaData.igualA(lista[indice])) return false;
         
         for(int i = this.tam; i > indice; i--)
-            lista[i].setData(lista[i-1]);
+            lista[i] = lista[i-1];
 
-        lista[indice].setData(novaData);
+        lista[indice] = novaData;
         tam++;
         return true;
     }
@@ -34,7 +43,7 @@ public class ListaCompromissoOrdenada {
         if(data.diferenteDe(lista[indice]) || this.tam == 0) return false;
 
         for(int i = indice; i < this.tam -1; i++)
-            lista[i].setData(lista[i+1]);
+            lista[i] = lista[i+1];
         
         tam--;
         return true;

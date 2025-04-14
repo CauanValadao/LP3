@@ -103,6 +103,10 @@ public class Data {
         System.out.printf("%02d/%02d/%02d\n", data.dia, data.mes, data.ano);
     }
 
+    public String toString(){
+        return dia + "/" + mes + "/" + ano;
+    }
+
     public byte getDia(){
         return (byte)dia;
     }
@@ -144,6 +148,14 @@ public class Data {
             this.dia = data.dia;
             this.mes = data.mes;
             this.ano = data.ano;
+        }
+    }
+
+    public void setData(int dia, int mes, int ano){
+        if(dataValida(dia, mes, ano)){
+            this.dia = dia;
+            this.mes = mes;
+            this.ano = ano;
         }
     }
   

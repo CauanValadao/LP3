@@ -10,6 +10,7 @@ public class testeLista {
         Data data4 = new Data(12, 9, 2020);
         Data data5 = new Data(24, 2, 2010);
         Data data6 = new Data(6, 10, 2009);
+        Data data7 = new Data(23, 4, 2008);
 
         lista.adicionaCompromisso(data);
         lista.adicionaCompromisso(data2);
@@ -20,6 +21,8 @@ public class testeLista {
         lista.adicionaCompromisso(data4);
         lista.adicionaCompromisso(data5);
         lista.adicionaCompromisso(data6);
+        lista.adicionaCompromisso(data7);
+        lista.adicionaCompromisso(data5);
 
         lista.listaCompromisso();
         

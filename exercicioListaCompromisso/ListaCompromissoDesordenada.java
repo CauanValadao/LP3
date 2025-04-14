@@ -22,15 +22,15 @@ public class ListaCompromissoDesordenada {
     }
 
     public boolean adicionaCompromisso(Data novaData){
-        if(verificaCompromissoInt(novaData) != -1 || this.tam > lista.length) return false;
-        lista[tam++] = new Data(novaData);
+        if(this.tam >= lista.length || verificaCompromissoInt(novaData) != -1) return false;
+        lista[tam++] = novaData;
         return true;
     }
 
     public boolean desmarcaCompromisso(Data novaData){
         int posicao = verificaCompromissoInt(novaData);
         if(posicao == -1) return false;
-        lista[posicao].setData(lista[tam-1]);
+        lista[posicao] = lista[tam-1];
         tam--;
         return true;
     }
@@ -38,7 +38,8 @@ public class ListaCompromissoDesordenada {
     public void listaCompromisso(){
         for(int i = 0; i < tam; i++){
             System.out.printf("Compromisso %d: ", i+1);
-            Data.mostraData(lista[i]);
+            //Data.mostraData(lista[i]);
+            System.out.println(lista[i]);
         }
     }
     
