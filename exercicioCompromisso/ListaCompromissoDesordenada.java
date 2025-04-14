@@ -1,4 +1,4 @@
-package exercicioListaCompromisso;
+package exercicioCompromisso;
 import exercicioData.*;
 
 public class ListaCompromissoDesordenada {
