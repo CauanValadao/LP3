@@ -1,11 +1,11 @@
-package exercicioCompromisso;
+package exercicioCompromisso.ListaCompromisso;
 import exercicioData.*;
 
-public class ListaCompromissoDesordenada {
+public class ListaCompromissoDesordenada2 {
     private Data[] lista;
     private int tam = 0;
 
-    public ListaCompromissoDesordenada(int capacidade){
+    public ListaCompromissoDesordenada2(int capacidade){
         lista = new Data[capacidade];
     }
 

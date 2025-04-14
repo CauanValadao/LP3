@@ -1,9 +1,9 @@
-package exercicioCompromisso;
+package exercicioCompromisso.ListaCompromisso;
 import exercicioData.*;
 
-public class testeListaD {
+public class testeListaD2 {
     public static void main(String[] args){
-    ListaCompromissoDesordenada lista = new ListaCompromissoDesordenada(4);
+    ListaCompromissoDesordenada2 lista = new ListaCompromissoDesordenada2(4);
 
     Data data = new Data(23,4,2008), data2 = new Data(23,4,2006);
     Data data3 = new Data(23,4,2009);

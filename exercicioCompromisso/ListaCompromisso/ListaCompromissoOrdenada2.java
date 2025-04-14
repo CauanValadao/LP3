@@ -1,14 +1,18 @@
-package exercicioCompromisso;
+package exercicioCompromisso.ListaCompromisso;
 import exercicioData.*;
 
-public class ListaCompromissoOrdenada {
+public class ListaCompromissoOrdenada2 {
     private Data[] lista;
     private int tam = 0;
 
-    public ListaCompromissoOrdenada(int capacidade){
+    public ListaCompromissoOrdenada2(int capacidade){
         lista = new Data[capacidade];
         //for(int i = 0; i < capacidade; i++) 
          //   lista[i] = new Data();
+    }
+
+    public ListaCompromissoOrdenada2(){
+        lista = new Data[10];
     }
 
     public boolean verificaCompromisso(Data data){

@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "testePilhaCompromisso",
+            "request": "launch",
+            "mainClass": "exercicioCompromisso.testePilhaCompromisso",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
             "name": "testeListaD",
             "request": "launch",
             "mainClass": "exercicioListaCompromisso.testeListaD",
