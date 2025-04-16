@@ -66,6 +66,16 @@ booleano isEmptyLstE(tpNo *lst);
 tpItem *searchItemLstE(tpNo *lst, unsigned int id);
 
 
+//tpNo* removeItemLstE(unsigned int mat, tpNo *lst);
+booleano removeItemLstE(unsigned int mat, tpNo **lst);
+
+void ordenarLstE(tpNo *lst);
+
+void merge(int* vet, int inicio, int meio, int fim);
+
+void mergeSort(int* vet,int inicio,int fim);
+
+
 #include "ListaE.c"
 
 #endif // LISTAE_H_INCLUDED

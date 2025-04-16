@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LP3Prova1E5",
+            "request": "launch",
+            "mainClass": "Prova1.LP3Prova1E5",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
+            "name": "LP3Prova1E3",
+            "request": "launch",
+            "mainClass": "Prova1.LP3Prova1E3",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
+            "name": "testeApaguarei",
+            "request": "launch",
+            "mainClass": "testeApaguarei",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
             "name": "testePilhaCompromisso",
             "request": "launch",
             "mainClass": "exercicioCompromisso.testePilhaCompromisso",
