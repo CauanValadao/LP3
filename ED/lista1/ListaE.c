@@ -97,35 +97,12 @@ tpItem * searchItemLstE(tpNo *lst, unsigned int id){
     return NULL;
 }
 
-/*tpNo* removeItemLstE(unsigned int mat, tpNo *lst){
-    if(lst == NULL){
-        return NULL;
-    }
-    tpNo *aux = lst;
-    tpNo *remove = NULL;
 
-    if(aux->item.id == mat){
-        remove = aux;
-        lst = aux->prox;
-        free(remove);
-        return lst;
-    }
-
-    while(aux->prox != NULL){
-        if(aux->prox->item.id == mat){
-            remove = aux->prox;
-            aux->prox = aux->prox->prox;
-            free(remove);
-            return lst;
-        }
-        aux = aux->prox;
-    }
-    return lst;
-        
-    
-
-}*/
-
+/** 
+ * Remove um elemento da lista. 
+ * @param mat = numero de matricula do elemento que deve ser retirado. 
+ * @param lst = uma lista de itens.
+ */
 booleano removeItemLstE(unsigned int mat, tpNo **lst){
     if(lst == NULL || *lst == NULL){
         return 0;
@@ -152,6 +129,10 @@ booleano removeItemLstE(unsigned int mat, tpNo **lst){
     return 0;
 }
 
+/** 
+ * Ordena uma lista em ordem crescente. 
+ * @param lst = uma lista de itens.
+ */
     void ordenarLstE(tpNo *lst){
     tpNo *aux = lst;
     int tam = 0;
@@ -161,56 +142,34 @@ booleano removeItemLstE(unsigned int mat, tpNo **lst){
         aux = aux->prox;
     }
 
-    int *vet = (int*)malloc(sizeof(int)*tam);
-    aux = lst;
+    
 
-    for(int i = 0; i < tam; i++){
-        vet[i] = aux->item.id;
-        aux = aux->prox;
+    for (int i = 0; i < tam; i++) {
+        aux = lst; 
+        for (int j = 0; j < tam - i - 1; j++) {
+            if (aux->item.id > aux->prox->item.id) {
+                troca(aux, aux->prox);
+            }
+            aux = aux->prox;
+        }
     }
-
-    mergeSort(vet, 0, tam - 1);
-
-    aux = lst;
-    for(int i = 0; i < tam; i++){
-        aux->item.id = vet[i];
-        aux = aux->prox;
-    }
-    free(vet);
+   
 }
 
-    void merge(int* vet, int inicio, int meio, int fim){
-        int p1 = inicio;
-        int p2 = meio + 1;
-        int tamanho = fim - inicio + 1;
-        int i = 0;
-    
-        int* temp = (int*)malloc(sizeof(int)*tamanho);
-    
-        while(p1 <= meio && p2 <= fim){
-            if(vet[p1] < vet[p2])
-                temp[i++] = vet[p1++];
-            else
-                temp[i++] = vet[p2++];
-        }
-        while(p1 <= meio)
-            temp[i++] = vet[p1++];
-        while(p2 <= fim)
-            temp[i++] = vet[p2++];
-        
-        for(int i = 0; i < tamanho; i++)
-            vet[inicio + i] = temp[i];
-    
-        free(temp);
-    }
-    
-    void mergeSort(int* vet,int inicio,int fim){
-        if(inicio < fim){
-            int meio = (inicio + fim)/ 2; 
-    
-            mergeSort(vet, inicio, meio);
-            mergeSort(vet, meio + 1, fim);
-            merge(vet, inicio, meio, fim);
-        }
-    }
 
+/** 
+ * troca os nomes e as matriculas de 2 nos
+ * @param no1 = no que sera trocado
+ * @param no2 = outro no que sera trocado
+ */
+void troca(tpNo *no1, tpNo *no2){
+    char tempNome[30];
+    int temp = no1->item.id;
+    
+    no1->item.id = no2->item.id;
+    no2->item.id = temp;
+
+    strcpy(tempNome, no1->item.nome);
+    strcpy(no1->item.nome, no2->item.nome);
+    strcpy(no2->item.nome, tempNome);
+}

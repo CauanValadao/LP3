@@ -65,15 +65,27 @@ booleano isEmptyLstE(tpNo *lst);
  */
 tpItem *searchItemLstE(tpNo *lst, unsigned int id);
 
-
-//tpNo* removeItemLstE(unsigned int mat, tpNo *lst);
+/** 
+ * Remove um elemento da lista. 
+ * @param mat = numero de matricula do elemento que deve ser retirado. 
+ * @param lst = uma lista de itens.
+ */
 booleano removeItemLstE(unsigned int mat, tpNo **lst);
 
+
+/** 
+ * Ordena uma lista em ordem crescente. 
+ * @param lst = uma lista de itens.
+ */
 void ordenarLstE(tpNo *lst);
 
-void merge(int* vet, int inicio, int meio, int fim);
 
-void mergeSort(int* vet,int inicio,int fim);
+/** 
+ * troca os nomes e as matriculas de 2 nos
+ * @param no1 = no que sera trocado
+ * @param no2 = outro no que sera trocado
+ */
+void troca(tpNo *no1, tpNo *no2);
 
 
 #include "ListaE.c"
