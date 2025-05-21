@@ -35,17 +35,21 @@ void adicionaNoRec(No* raiz, No* no){
     }
 }
 
-int alturaArvore(No* raiz){
+int alturaArvoreAux(No* raiz){
     if(!raiz) return 0;
 
     int direita = 1, esquerda = 1;
     
-    direita += alturaArvore(raiz->direita);
-    esquerda += alturaArvore(raiz->esquerda);
+    direita += alturaArvoreAux(raiz->direita);
+    esquerda += alturaArvoreAux(raiz->esquerda);
 
     if(direita > esquerda) 
         return direita;
     return esquerda;
+}
+
+int alturaArvore(No* raiz){
+    return alturaArvoreAux(raiz) - 1;
 }
 
 void desalocaArvore(No* raiz){
@@ -64,4 +68,13 @@ int estaNaArvore(No* raiz, int valor){
     if(valor > raiz->valor)
         return estaNaArvore(raiz->direita, valor);
     else return estaNaArvore(raiz->esquerda, valor);
+}
+
+No* estaNaArvoreP(No* raiz, int valor){
+    if(!raiz) return NULL;
+    if(raiz->valor == valor) return raiz;
+
+    if(valor > raiz->valor)
+        return estaNaArvoreP(raiz->direita, valor);
+    else return estaNaArvoreP(raiz->esquerda, valor);
 }

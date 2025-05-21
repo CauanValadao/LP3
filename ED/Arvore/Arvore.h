@@ -15,6 +15,8 @@ void adicionaNo(No** raiz, int valor);
 
 void adicionaNoRec(No* raiz, No* no);
  
+int alturaArvoreAux(No* raiz);
+
 int alturaArvore(No* raiz);
 
 int estaNaArvore(No* raiz, int valor);
