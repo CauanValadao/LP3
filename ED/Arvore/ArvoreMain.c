@@ -15,6 +15,14 @@ int main(){
 
     printf("%d oi", alturaArvore(raiz));
 
+    int vet[10] = {10,5,17,3,9,21,44,2,1,27};
+
+    for(int i = 0; i < 10; i++){
+        if(!estaNaArvore(raiz, vet[i])){
+            printf("\n%dnao esta na arvore", vet[i]);
+        }
+    }
+
     desalocaArvore(raiz);
 
     return 0;

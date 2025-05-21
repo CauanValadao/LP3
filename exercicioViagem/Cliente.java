@@ -1,4 +1,4 @@
-package viagem;
+package exercicioViagem;
 
 public class Cliente{
     private String nome, cpf;

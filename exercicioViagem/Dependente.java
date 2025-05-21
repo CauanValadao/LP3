@@ -1,4 +1,4 @@
-package viagem;
+package exercicioViagem;
 
 public class Dependente {
     private String nome;

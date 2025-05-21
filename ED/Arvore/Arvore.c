@@ -56,3 +56,12 @@ void desalocaArvore(No* raiz){
 
     free(raiz);
 }
+
+int estaNaArvore(No* raiz, int valor){
+    if(!raiz) return 0;
+    if(raiz->valor == valor) return 1;
+
+    if(valor > raiz->valor)
+        return estaNaArvore(raiz->direita, valor);
+    else return estaNaArvore(raiz->esquerda, valor);
+}

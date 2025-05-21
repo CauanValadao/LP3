@@ -17,4 +17,6 @@ void adicionaNoRec(No* raiz, No* no);
  
 int alturaArvore(No* raiz);
 
+int estaNaArvore(No* raiz, int valor);
+
 #include "Arvore.c"
