@@ -16,18 +16,24 @@ public class Evento {
         this.nome = "fulano";
         this.duracao = 10;
     }
-    public Evento(){
-        this("evento");
-    }
 
     public String getNome(){
         return this.nome;
     }
 
-    public void setNome(String nome){
-        this.nome = nome;
     public int getDuracao(){
         return this.duracao;
     }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public void  setDuracao(int duracao){
+        this.duracao = duracao;
+    }
+   
+
+
     
 }
