@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "livromain",
+            "request": "launch",
+            "mainClass": "listaExercicio1Java.livromain",
+            "projectName": "LP3_afeee203"
+        },
+        {
+            "type": "java",
             "name": "LP3Prova1E5",
             "request": "launch",
             "mainClass": "Prova1.LP3Prova1E5",
