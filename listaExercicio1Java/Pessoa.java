@@ -36,6 +36,9 @@ public class Pessoa{
     public void setNome(String nome){
         this.nome = nome;
     }
-
+    
+    public void imprimeNome(){
+        System.out.printf("Olá, meu nome é: %s", this.nome);
+    }
 
 }

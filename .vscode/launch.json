@@ -2,6 +2,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ProdutoMain",
+            "request": "launch",
+            "mainClass": "listaExercicio1Java.ProdutoMain",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
+            "name": "CarroMain",
+            "request": "launch",
+            "mainClass": "listaExercicio1Java.CarroMain",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
+            "name": "Livromain",
+            "request": "launch",
+            "mainClass": "listaExercicio1Java.Livromain",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
+            "name": "livromain",
+            "request": "launch",
+            "mainClass": "listaExercicio1Java.livromain",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
             "name": "livromain",
             "request": "launch",
             "mainClass": "listaExercicio1Java.livromain",
