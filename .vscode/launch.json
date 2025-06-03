@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "VerticeMain",
+            "request": "launch",
+            "mainClass": "prova2Simulado.VerticeMain",
+            "projectName": "LP3_afeee203"
+        },
+        {
+            "type": "java",
             "name": "ProdutoMain",
             "request": "launch",
             "mainClass": "listaExercicio1Java.ProdutoMain",
