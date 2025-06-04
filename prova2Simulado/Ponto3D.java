@@ -28,4 +28,5 @@ public class Ponto3D extends Ponto2D {
     public String toString(){
         return "Ponto3D{" +"x=" + getX() +", y=" + getY() +", z=" + z +'}';
     }
+
 }
