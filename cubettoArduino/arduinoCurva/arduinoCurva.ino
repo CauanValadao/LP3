@@ -17,21 +17,21 @@ void setup(){
 
 void loop(){
     // Motor 1 - Left
-    analogWrite(IN1, PWM1);
-    digitalWrite(IN2, LOW);
+    digitalWrite(IN1, PWM1);
+    digitalWrite(IN2, 0);
 
     // Motor 2 - Right
-    analogWrite(IN3, PWM2);
-    digitalWrite(IN4, LOW);
+    digitalWrite(IN3, PWM2);
+    digitalWrite(IN4, 0);
 
     delay(1000); // Wait for 1 second to maintain the turn
 
     // Stop motors
 
-    digitalWrite(IN1, LOW);
-    digitalWrite(IN2, LOW);
-    digitalWrite(IN3, LOW);
-    digitalWrite(IN4, LOW);
-    
+    digitalWrite(IN1, 0);
+    digitalWrite(IN2, 0);
+    digitalWrite(IN3, 0);
+    digitalWrite(IN4, 0);
+
     delay(2000); // Wait for 1 second before the next loop iteration
 }
