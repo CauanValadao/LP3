@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "cronologia_02",
+            "request": "launch",
+            "mainClass": "cronologia_02",
+            "projectName": "LP3_afeee203"
+        },
+        {
+            "type": "java",
+            "name": "VerticeMain",
+            "request": "launch",
+            "mainClass": "prova2Simulado1.VerticeMain",
+            "projectName": "LP3_afeee203"
+        },
+        {
+            "type": "java",
+            "name": "VerticeMain",
+            "request": "launch",
+            "mainClass": "VerticeMain",
+            "projectName": "LP3_afeee203"
+        },
+        {
+            "type": "java",
             "name": "VerticeMain",
             "request": "launch",
             "mainClass": "prova2Simulado.VerticeMain",

@@ -61,6 +61,20 @@ void desalocaArvore(No* raiz){
     free(raiz);
 }
 
+No* rotacionaSimplesD(No* raiz) {
+    No* novaRaiz = raiz->esquerda;
+    raiz->esquerda = novaRaiz->direita;
+    novaRaiz->direita = raiz;
+    return novaRaiz;
+}
+
+No* rotacionaSimplesE(No* raiz){
+    No* novaRaiz = raiz->direita;
+    raiz->direita = novaRaiz->esquerda;
+    novaRaiz->esquerda = raiz;
+    return novaRaiz;
+}
+
 int estaNaArvore(No* raiz, int valor){
     if(!raiz) return 0;
     if(raiz->valor == valor) return 1;
