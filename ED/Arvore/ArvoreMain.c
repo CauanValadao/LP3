@@ -11,6 +11,7 @@ int main(){
     adicionaNo(&raiz, 21);
     adicionaNo(&raiz, 2);
     adicionaNo(&raiz, 1);
+    adicionaNo(&raiz, 44);
     adicionaNo(&raiz, 27);
 
     printf("%d oi", alturaArvore(raiz));

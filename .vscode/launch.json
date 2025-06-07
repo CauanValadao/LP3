@@ -2,17 +2,36 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "prova2Exemplo",
             "request": "launch",
             "mainClass": "prova2Exemplo",
             "projectName": "LP3_4a347d87"
+=======
+            "name": "cronologia_02",
+            "request": "launch",
+            "mainClass": "cronologia_02",
+            "projectName": "LP3_afeee203"
+>>>>>>> d13b207466f105a8c20af31d85444a5c4b386132
         },
         {
             "type": "java",
             "name": "VerticeMain",
             "request": "launch",
+<<<<<<< HEAD
             "mainClass": "prova2Simulado.VerticeMain",
             "projectName": "LP3_4a347d87"
+=======
+            "mainClass": "prova2Simulado1.VerticeMain",
+            "projectName": "LP3_afeee203"
+        },
+        {
+            "type": "java",
+            "name": "VerticeMain",
+            "request": "launch",
+            "mainClass": "VerticeMain",
+            "projectName": "LP3_afeee203"
+>>>>>>> d13b207466f105a8c20af31d85444a5c4b386132
         },
         {
             "type": "java",
