@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "prova2Exemplo",
+            "request": "launch",
+            "mainClass": "prova2Exemplo",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
+            "name": "VerticeMain",
+            "request": "launch",
+            "mainClass": "prova2Simulado.VerticeMain",
+            "projectName": "LP3_4a347d87"
+        },
+        {
+            "type": "java",
             "name": "VerticeMain",
             "request": "launch",
             "mainClass": "prova2Simulado.VerticeMain",
