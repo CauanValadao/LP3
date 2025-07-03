@@ -34,9 +34,8 @@ int main(){
     long long multaDiaria = 0;
     Dragao novoDragao;
     Dragao sendoTreinado;
-    sendoTreinado.tempo = 0;
 
-    MaxHeap* alojamento = create_heap(2);
+    MaxHeap* alojamento = create_heap(100005);
 
     while (scanf("%d %d", &dragaoTemp, &dragaoMulta) == 2){
         novoDragao.multa = dragaoMulta;
@@ -45,24 +44,28 @@ int main(){
         insert(alojamento, novoDragao);
         multaDiaria += novoDragao.multa;
 
-        if(sendoTreinado.tempo == 0){
-            sendoTreinado = extract_max(alojamento);
-            multaDiaria -= sendoTreinado.multa;
-        }
+        
+        sendoTreinado = extract_max(alojamento);
+        multaDiaria -= sendoTreinado.multa;
+        
 
-        multaTotal += multaDiaria;
-        sendoTreinado.tempo--;
+        multaTotal += multaDiaria*sendoTreinado.tempo;
+
+        for(int i = sendoTreinado.tempo-1; i > 0 && scanf("%d %d", &dragaoTemp, &dragaoMulta) == 2; i--){
+            novoDragao.multa = dragaoMulta;
+            novoDragao.tempo = dragaoTemp;
+            novoDragao.prioridade = 1.0*dragaoMulta/dragaoTemp;
+            insert(alojamento, novoDragao);
+            multaDiaria += novoDragao.multa;
+            multaTotal += novoDragao.multa*i;
+        }
     }
-    
 
     while(alojamento->tamanho > 0){
-        if(sendoTreinado.tempo == 0){
-            sendoTreinado = extract_max(alojamento);
-            multaDiaria -= sendoTreinado.multa;
-        }
+        sendoTreinado = extract_max(alojamento);
+        multaDiaria -= sendoTreinado.multa;
 
-        multaTotal += multaDiaria;
-        sendoTreinado.tempo--;
+        multaTotal += multaDiaria*sendoTreinado.tempo;
     }
 
     printf("%lld\n", multaTotal);
@@ -121,15 +124,9 @@ void heapify_up(MaxHeap* heap, int indice){
 }
 
 void swap(Dragao* a, Dragao* b){
-    int troca = a->tempo;
-    a->tempo = b->tempo;
-    b->tempo = troca;
-    troca = a->multa;
-    a->multa = b->multa;
-    b->multa = troca;
-    double trocaP = a->prioridade;
-    a->prioridade = b->prioridade;
-    b->prioridade = trocaP;
+    Dragao temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 void free_heap(MaxHeap* heap){
