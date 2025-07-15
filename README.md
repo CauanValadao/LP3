@@ -1,2 +1,2 @@
 # LP3
-Linguagem de programção 3-UESC
+Linguagem de programação 3-UESC
